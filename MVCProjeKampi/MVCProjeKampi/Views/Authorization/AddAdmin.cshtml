@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrate.Admin
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Yeni Admin Ekleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("AddAdmin", "Authorization", FormMethod.Post))
+{
+    <div class=" form-group">
+        @Html.Label("Admin Kullanıcı Adı")
+        @Html.TextBoxFor(x => x.AdminUserName, new { @class = "form-control" })
+        <br />  
+        @Html.Label("Şifre")
+        @Html.TextAreaFor(x => x.AdminPassword, new { @class = "form-control" })
+        <br />
+        @Html.Label("Rol")
+        @Html.TextBoxFor(x => x.AdminRole, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info" id="btn3">Kaydet</button>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="~/Scripts/jquery-3.4.1.js"></script>
+        <script>
+            $('#btn3').click(function () {
+                swal("Tebrikler!", "Başarılı Bir Şekilde Ekleme Yaptınız", "success");
+            })
+        </script>
+    </div>
+
+}
+
